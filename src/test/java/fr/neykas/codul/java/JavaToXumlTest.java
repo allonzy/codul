@@ -12,11 +12,14 @@ import junit.framework.TestCase;
 public class JavaToXumlTest extends TestCase {
 	private JavaToXuml xumlConvertor;
 	
-	public void readPackageTest() {
+	public void readPackageTestStandardCase() {
 		assertEquals(xumlConvertor.readPackage("package fr.neykas.codul;"),"fr.neykas.codul");
 	}
+	public void readPackageTestStandardCaseUnvalidParsingException() {
+		xumlConvertor.readPackage("packagefr.neas.codul");
+	}
 
-	public void readImportsTestStandartCase() {
+	public void readImportsTestStandardCase() {
 		List<String> imports = new ArrayList<String>();
 		imports.add("imports.import1");
 		imports.add("imports.import2");
